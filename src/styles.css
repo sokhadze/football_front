@@ -1,4 +1,304 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@font-face {
+  font-family: dejavu;
+  src: url(assets/fonts/bpg_dejavu_sans.otf);
+}
+
+*{
+  box-sizing: border-box;
+  font-family: dejavu;
+}
+
+body{
+  background-color: #EAEAEA !important;
+  padding-top: 80px;
+}
+
+.top-section {
+  display: flex;
+  justify-content: center;
+  background-color: #131921;
+  height: 45px;
+  padding: 8px;
+}
+.container{
+  background-color: #EAEAEA;
+  padding: 0px !important;
+}
+.top-bar {
+  width: 98%;
+  border-bottom: 1px solid white;
+
+}
+
+.mid-section {
+  background: url('https://goal.ge/templates/GoalGe/images/header-sci.png') no-repeat;
+  background-size: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #131921;
+  height: 70px;
+  padding: 8px;
+}
+
+.bottom-section {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1A232E;
+  height: 54px;
+  padding: 8px;
+}
+.bottom-section ul {
+  display: flex;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  padding: 0;
+}
+
+.bottom-section ul li{
+  list-style-type: none;
+}
+
+.bottom-section ul li a:hover {
+  height: 36px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background-color: #3f4856;
+  -moz-box-shadow: 0 1px 0 #191d1f, inset 0 1px 0 #49596d;
+  -webkit-box-shadow: 0 1px 0 #191d1f, inset 0 1px 0 #49596d;
+  box-shadow: 0 1px 0 #191d1f, inset 0 1px 0 #49596d;
+
+}
+
+.bottom-section ul li a{
+  text-decoration: none;
+  color: white;
+  display: block;
+  width: 100%;
+  margin: 0px 10px;
+  padding: 5px;
+  text-align: center;
+}
+
+.top-menu a {
+  color: white;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 14px;
+
+}
+
+.top-menu a:hover {
+  color: #22cc8a;
+  padding: 12px;
+}
+
+.header {
+  width: 100%;
+}
+.logo {
+  width: 207px;
+  height: 41px;
+  display: block;
+}
+.logo{
+  background: url('https://goal.ge/templates/GoalGe/images/logo.png') no-repeat;
+  width: 207px;
+  height: 41px;
+  vertical-align: middle;
+  text-decoration: none;
+  margin-left: 8px;
+  transition: all .2s ease-in-out 0s;
+  -moz-transition: all .2s ease-in-out 0s;
+  -webkit-transition: all .2s ease-in-out 0s;
+  -o-transition: all .2s ease-in-out 0s;
+}
+.content {
+  display: flex;
+  margin-top: 10px;
+}
+.right-side {
+  width: 350px;
+
+}
+
+.left-side {
+  margin-right: 10px;
+}
+
+.footer{
+
+}
+
+.daily-news-text-title {
+  font-size: 16.5px;
+  font-weight: bold;
+}
+
+.daily-news-text-description {
+  font-size: 14px;
+}
+
+.bottom-menu {
+  padding: 0px 40px;
+  background-color: #13191f;
+  height: 146px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.bottom-menu2 {
+  height: 24px;
+}
+
+.bottom-menu2 ul{
+  padding: 0;
+}
+
+.bottom-menu2 ul li {
+  list-style-type: none;
+  display: inline;
+  margin-right: 10px;
+}
+
+.bottom-menu2 ul li a {
+  color: white;
+  text-decoration: none;
+  transition: .5s;
+}
+
+.bottom-menu2 ul li a:hover {
+  color: #22cc8a;
+}
+
+
+/* #22cc8a */
+
+
+.banner-place {
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+}
+
+
+.copy {
+  background-color: #161c25;
+  color: #4f6073;
+  display: flex;
+  justify-content: left;
+  padding-left: 20px;
+  font-size: 12px;
+  align-items: center;
+  height: 72px;
+}
+
+.all-news-title {
+  background-color: #FAFAFA;
+  padding: 10px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.all-news-news {
+  background-color: white;
+  border-bottom: 1px solid #f0f0f0;
+  color: #313131;
+  display: flex;
+  padding: 6px;
+  background-image: url('https://goal.ge/templates/GoalGe/images/lenta-item-date.png');
+  background-repeat: no-repeat;
+  background-position: 3px 5px;
+}
+
+.all-news-news:hover {
+  background-color: #fafafa;
+  cursor: pointer;
+  background-image: url('https://goal.ge/templates/GoalGe/images/lenta-item-date2.png');
+  background-repeat: no-repeat;
+}
+
+.all-news-news:hover > .all-news-text {
+  color: red;
+}
+
+.all-news-details {
+  background-color: white;
+  padding: 6px;
+}
+
+.all-news-details button {
+  background-color: #ffaa00;
+  border: 0px;
+  padding: 10px;
+  border-radius: 2px;
+  font-size: 12px;
+  width: 100%;
+}
+
+.all-news-details button:hover {
+  background-color: #ffca61;
+}
+
+.all-news-time {
+  width: 60px;
+  font-size: 12px;
+  color: white;
+  padding-left: 2px;
+}
+
+
+
+.all-news-text {
+  width: 100%;
+  font-size: 13px;
+}
+
+.daily-news-template {
+  background-color: #F9F9F9;
+}
+
+.daily-news-title {
+  font-size: 14px;
+  background-color: white;
+  border-top: 4px solid red;
+  width: 300px;
+  padding: 20px;
+}
+
+.daily-news-content {
+  display: flex;
+  padding: 14px;
+  background-color: white;
+  border-bottom: 1px solid #ededed;
+}
+
+.daily-news-content:hover {
+  background-color: #fafafa;
+}
+
+.daily-news-text{
+  padding-left: 10px;
+}
+
+body {
+  background-image: url(https://i.pinimg.com/originals/a9/88/a4/a988a47e605cacc02b0bb41c85270de3.jpg);
+  background-attachment:fixed;
+  background-repeat: no-repeat;
+}
+
+
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1300px !important;
+  }
+
+}
