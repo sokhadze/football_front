@@ -8,7 +8,7 @@ import {HomeComponent} from './home/home.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
-  {path: 'register', component: RegisterComponent, canActivate: [UnAuthGuard]},
+  {path: 'register', component: RegisterComponent, pathMatch: 'full'},
   // {path: 'home', component: HomeComponent, canActivate: [UnAuthGuard]},
   // {path: 'wallet', component: WalletComponent, canActivate: [UnAuthGuard]},
   // // {path: '', component: WalletComponent, canActivate: [UnAuthGuard]},

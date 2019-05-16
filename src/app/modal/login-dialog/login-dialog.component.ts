@@ -1,5 +1,9 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {NetworkingService} from '../../services/networking.service';
+import {UserModel} from '../../models/user.model';
+import {UserService} from '../../services/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login-dialog',
@@ -8,11 +12,16 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 })
 export class LoginDialogComponent implements OnInit {
 
+  @ViewChild('email') email: ElementRef<HTMLInputElement>;
+  @ViewChild('password') password: ElementRef<HTMLInputElement>;
 
 
   constructor(
     public dialogRef: MatDialogRef<LoginDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: LoginDialogData) {}
+    @Inject(MAT_DIALOG_DATA) public data: LoginDialogData,
+    private network: NetworkingService,
+    private user: UserService,
+    private router: Router ) {}
 
   dialogClose(): void {
     this.dialogRef.close();
@@ -23,9 +32,37 @@ export class LoginDialogComponent implements OnInit {
   }
 
 
+  login() {
+    debugger;
+    if (this.email.nativeElement.value === '' || this.password.nativeElement.value === '') {
+      return;
+    } else {
+      const data = {
+        email: this.email.nativeElement.value,
+        password: this.password.nativeElement.value
+      };
+      this.network.postRequest(data, `/login`)
+        .subscribe(
+          (_data: UserModel) => {
+            NetworkingService.setCookie('access_token', _data.api_token);
+            NetworkingService.setCookie('refresh_token', _data.api_token);
+            this.network.getRequest(`/user`, _data.api_token).subscribe(
+              (user: UserModel) => {
+                this.user.setUser(user);
+                this.router.navigate(['home'])
+                  .then(
+                    () => {
+                      console.log('go home');
+                    });
+              }
+            );
+
+          });
+    }
+  }
 }
 
 export interface LoginDialogData {
-  animal: string;
-  name: string;
+  email: string;
+  password: string;
 }

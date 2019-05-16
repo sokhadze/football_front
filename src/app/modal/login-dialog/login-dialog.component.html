@@ -3,14 +3,16 @@
   <mat-icon (click)="dialogClose()">close</mat-icon>
 </div>
 <div mat-dialog-content>
-  <mat-form-field class="with-100">
-    <input matInput placeholder="სახელი">
-  </mat-form-field>
-  <mat-form-field class="with-100">
-    <input matInput type="password" placeholder="პაროლი">
-  </mat-form-field>
+  <form form-control (ngSubmit)="login()">
+    <mat-form-field class="with-100">
+      <input matInput placeholder="სახელი" #email>
+    </mat-form-field>
+    <mat-form-field class="with-100">
+      <input matInput type="password" placeholder="პაროლი" #password>
+    </mat-form-field>
+  </form>
 </div>
-<div mat-dialog-actions>
+<div mat-dialog-actions style="display: flex; justify-content: space-between">
   <button mat-button routerLink="/register" (click)="dialogClose()">რეგისტრაცია</button>
-  <button mat-button style="background-color: #08b270; color: white;" (click)="onNoClick()">შესვლა</button>
+  <button mat-button style="background-color: #08b270; color: white;" (click)="login()">შესვლა</button>
 </div>

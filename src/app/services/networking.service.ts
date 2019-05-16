@@ -33,11 +33,11 @@ export class NetworkingService {
       ));
   }
 
-  getRequest(url: string): Observable<any> {
+  getRequest(url: string, api_token?: any): Observable<any> {
     const header = new HttpHeaders().set('Content-Type', 'application/json')
     // const header = new HttpHeaders().set('X-Requested-With', 'XMLHttpRequest')
 
-      .set('Authorization', 'Bearer ' + NetworkingService.getCookie('access_token'));
+      .set('Authorization', 'Bearer ' + api_token);
     return this.http.get(`${this.url}${url}`, {headers: header})
       .pipe(map(
         (response: Response) => {

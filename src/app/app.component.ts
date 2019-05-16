@@ -17,29 +17,45 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (NetworkingService.getCookie('access_token')) {
-      this.network.getRequest(`/user`)
-        .subscribe(
-          (user: UserModel) => {
-            this.userService.setUser(user);
+    this.userService.getUser
+      .subscribe(
+        (user: UserModel) => {
+          if (user) {
+            this.isLogged = true;
+            console.log(user);
+            // this.networking.getRequest(`/user`, user)
+            //   .subscribe(
+            //     (user: UserModel) => {
+            //       this.userService.setUser(user);
+            //     }
+            //   );
           }
-        );
-    } else {
-      this.network.getRequest('/articles')
-        .subscribe(
-          (articles: any) => {
-            console.log(articles);
-          }
-        );
-      this.userService.getUser
-        .subscribe(
-          (user: UserModel) => {
-            if (user) {
-              this.isLogged = true;
-            }
-          }
-        );
-    }
-
+        }
+      );
+  //   const token = NetworkingService.getCookie('access_token');
+  //   if (token || token === 'undefined') {
+  //     this.network.getRequest(`/user` )
+  //       .subscribe(
+  //         (user: UserModel) => {
+  //           this.userService.setUser(user);
+  //         }
+  //       );
+  //   } else {
+  //     this.network.getRequest('/articles')
+  //       .subscribe(
+  //         (articles: any) => {
+  //           console.log(articles);
+  //         }
+  //       );
+  //     this.userService.getUser
+  //       .subscribe(
+  //         (user: UserModel) => {
+  //           if (user) {
+  //             this.isLogged = true;
+  //           }
+  //         }
+  //       );
+  //   }
+  //
   }
 }
