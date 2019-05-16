@@ -19,22 +19,20 @@ body{
   padding-top: 80px;
 }
 
-.top-section {
-  display: flex;
-  justify-content: center;
-  background-color: #131921;
-  height: 45px;
-  padding: 8px;
+.font {
+  font-family: dejavu !important;
 }
+
+.with-100 {
+  width: 100%;
+}
+
+
 .container{
   background-color: #EAEAEA;
   padding: 0px !important;
 }
-.top-bar {
-  width: 98%;
-  border-bottom: 1px solid white;
 
-}
 
 .mid-section {
   background: url('https://goal.ge/templates/GoalGe/images/header-sci.png') no-repeat;
@@ -86,18 +84,7 @@ body{
   text-align: center;
 }
 
-.top-menu a {
-  color: white;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 14px;
 
-}
-
-.top-menu a:hover {
-  color: #22cc8a;
-  padding: 12px;
-}
 
 .header {
   width: 100%;
