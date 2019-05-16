@@ -48,6 +48,7 @@ import {PortalModule} from '@angular/cdk/portal';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { RegisterComponent } from './shared/register/register.component';
 import {AppRouteModule} from './app-route.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import {AppRouteModule} from './app-route.module';
     HeaderComponent,
     LoginDialogComponent,
     RegisterComponent,
+    HomeComponent,
 
   ],
   imports: [

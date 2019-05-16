@@ -4,9 +4,10 @@ import {RouterModule, Routes} from '@angular/router';
 import {RegisterComponent} from './shared/register/register.component';
 import {AuthGuard} from './guards/auth.guard';
 import {UnAuthGuard} from './guards/un-auth.guard';
+import {HomeComponent} from './home/home.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/', pathMatch: 'full'},
+  {path: '', component: HomeComponent, pathMatch: 'full'},
   {path: 'register', component: RegisterComponent, canActivate: [UnAuthGuard]},
   // {path: 'home', component: HomeComponent, canActivate: [UnAuthGuard]},
   // {path: 'wallet', component: WalletComponent, canActivate: [UnAuthGuard]},
@@ -26,7 +27,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
     RouterModule.forRoot(routes),
   ],
   exports: [
