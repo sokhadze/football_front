@@ -1,6 +1,7 @@
 .top-auth {
   color: white;
   display: flex;
+  align-items: baseline;
 }
 
 .top-bar {

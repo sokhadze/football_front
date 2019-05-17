@@ -11,9 +11,10 @@ import {UserModel} from '../../models/user.model';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  isLogged = false;
+  isLogged: boolean;
   name: string;
   animal: string;
+  user: any = UserModel;
 
   constructor(public dialog: MatDialog,
               public userService: UserService,
@@ -36,6 +37,7 @@ export class HeaderComponent implements OnInit {
         (user: UserModel) => {
           if (user) {
             this.isLogged = true;
+            this.user = user;
             console.log(user);
             // this.networking.getRequest(`/user`, user)
             //   .subscribe(
@@ -57,6 +59,11 @@ export class HeaderComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.animal = result;
     });
+  }
+
+  logout() {
+    localStorage.clear();
+    location.reload(true);
   }
 }
 

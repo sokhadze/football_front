@@ -33,7 +33,6 @@ export class LoginDialogComponent implements OnInit {
 
 
   login() {
-    debugger;
     if (this.email.nativeElement.value === '' || this.password.nativeElement.value === '') {
       return;
     } else {
@@ -44,15 +43,17 @@ export class LoginDialogComponent implements OnInit {
       this.network.postRequest(data, `/login`)
         .subscribe(
           (_data: UserModel) => {
-            NetworkingService.setCookie('access_token', _data.api_token);
-            NetworkingService.setCookie('refresh_token', _data.api_token);
-            this.network.getRequest(`/user`, _data.api_token).subscribe(
+            debugger
+            NetworkingService.setCookie('access_token', _data['data'].api_token);
+            NetworkingService.setCookie('refresh_token', _data['data'].api_token);
+            this.network.getRequest(`/user`, _data['data'].api_token).subscribe(
               (user: UserModel) => {
                 this.user.setUser(user);
-                this.router.navigate(['home'])
+                this.router.navigate(['/'])
                   .then(
                     () => {
                       console.log('go home');
+                      this.dialogClose();
                     });
               }
             );

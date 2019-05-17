@@ -36,9 +36,8 @@ export class NetworkingService {
   getRequest(url: string, api_token?: any): Observable<any> {
     const header = new HttpHeaders().set('Content-Type', 'application/json')
     // const header = new HttpHeaders().set('X-Requested-With', 'XMLHttpRequest')
-
-      .set('Authorization', 'Bearer ' + api_token);
-    return this.http.get(`${this.url}${url}`, {headers: header})
+      .set('Authorization', 'Bearer ' + NetworkingService.getCookie('access_token'));
+    return this.http.get(`${this.url}${url}`, {headers: header, withCredentials: true})
       .pipe(map(
         (response: Response) => {
           return response;

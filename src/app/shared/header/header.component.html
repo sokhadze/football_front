@@ -3,13 +3,17 @@
     <div class="top-bar">
       <div class="top-menu">
         <a routerLink="/">მთავარი გვერდი</a>
-        <a href="#">კონტაქტი</a>
-        <a href="#">რეკლამა</a>
+        <a routerLink="/contact">კონტაქტი</a>
+        <a >რეკლამა</a>
       </div>
       <div class="top-auth">
         <div class="search">
 
         </div>
+        <ng-container *ngIf="isLogged">
+          <span>გამარჯობა - {{user.name}}</span> &nbsp;
+          <button mat-button (click)="logout()" style="background-color: #1A232E; height: 36px;">გასვლა</button>
+        </ng-container>
         <ng-container *ngIf="!isLogged">
           <div class="auth">
             <a routerLink="register">რეგისტრაცია</a>
@@ -27,7 +31,7 @@
   </div>
   <div class="bottom-section">
     <ul>
-      <li><a href="">ახალი ამბები</a></li>
+      <li><a routerLink="/">ახალი ამბები</a></li>
       <li><a href="">ახალი ამბები</a></li>
       <li><a href="">LIVESCORE</a></li>
     </ul>

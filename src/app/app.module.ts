@@ -49,6 +49,9 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import { RegisterComponent } from './shared/register/register.component';
 import {AppRouteModule} from './app-route.module';
 import { HomeComponent } from './home/home.component';
+import { ContactComponent } from './shared/contact/contact.component';
+import { ArticleShowComponent } from './shared/article-show/article-show.component';
+import {FormsModule, NgModel, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -57,7 +60,8 @@ import { HomeComponent } from './home/home.component';
     LoginDialogComponent,
     RegisterComponent,
     HomeComponent,
-
+    ContactComponent,
+    ArticleShowComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +74,11 @@ import { HomeComponent } from './home/home.component';
     MatDialogModule,
     MatInputModule,
     MatFormFieldModule,
-    AppRouteModule
+    AppRouteModule,
+    MatPaginatorModule,
+    FormsModule,
+    ReactiveFormsModule,
+
   ],
   providers: [],
   entryComponents: [LoginDialogComponent],

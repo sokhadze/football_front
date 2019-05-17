@@ -17,21 +17,31 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userService.getUser
-      .subscribe(
-        (user: UserModel) => {
-          if (user) {
-            this.isLogged = true;
-            console.log(user);
-            // this.networking.getRequest(`/user`, user)
-            //   .subscribe(
-            //     (user: UserModel) => {
-            //       this.userService.setUser(user);
-            //     }
-            //   );
+    const token = localStorage.getItem('access_token');
+    if (token) {
+      this.network.getRequest(`/user`)
+        .subscribe(
+          (user: UserModel) => {
+            console.log('app.component');
+            this.userService.setUser(user);
           }
-        }
-      );
+        );
+    }
+    // this.userService.getUser
+    //   .subscribe(
+    //     (user: UserModel) => {
+    //       if (user) {
+    //         this.isLogged = true;
+    //         console.log(user);
+    //         // this.networking.getRequest(`/user`, user)
+    //         //   .subscribe(
+    //         //     (user: UserModel) => {
+    //         //       this.userService.setUser(user);
+    //         //     }
+    //         //   );
+    //       }
+    //     }
+    //   );
   //   const token = NetworkingService.getCookie('access_token');
   //   if (token || token === 'undefined') {
   //     this.network.getRequest(`/user` )
