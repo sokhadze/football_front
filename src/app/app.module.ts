@@ -66,7 +66,6 @@ import {FormsModule, NgModel, ReactiveFormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    NoopAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
     HttpClientModule,
@@ -82,7 +81,7 @@ import {FormsModule, NgModel, ReactiveFormsModule} from '@angular/forms';
   ],
   providers: [],
   entryComponents: [LoginDialogComponent],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent, LoginDialogComponent],
   exports: [
     MatButtonModule,
     MatCheckboxModule,
