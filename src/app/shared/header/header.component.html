@@ -10,16 +10,20 @@
         <div class="search">
 
         </div>
-        <ng-container *ngIf="isLogged">
-          <span>გამარჯობა - {{user.name}}</span> &nbsp;
-          <button mat-button (click)="logout()" style="background-color: #1A232E; height: 36px;">გასვლა</button>
+        <ng-container *ngIf="userDataAvailable">
+          <ng-container *ngIf="isLogged">
+            <span class="add_article_btn" routerLink="/article/create">+პოსტის დამატება</span>
+            <span>გამარჯობა - {{user.name}}</span> &nbsp;
+            <button mat-button (click)="logout()" style="background-color: #1A232E; height: 36px;">გასვლა</button>
+          </ng-container>
+          <ng-container *ngIf="!isLogged">
+            <div class="auth">
+              <a routerLink="register">რეგისტრაცია</a>
+              <a (click)="openLoginDialog()" class="auth-btn"><mat-icon class="auth-icon">lock</mat-icon>ავტორიზაცია</a>
+            </div>
+          </ng-container>
         </ng-container>
-        <ng-container *ngIf="!isLogged">
-          <div class="auth">
-            <a routerLink="register">რეგისტრაცია</a>
-            <a (click)="openLoginDialog()" class="auth-btn"><mat-icon class="auth-icon">lock</mat-icon>ავტორიზაცია</a>
-          </div>
-        </ng-container>
+
       </div>
     </div>
   </div>

@@ -52,6 +52,8 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './shared/contact/contact.component';
 import { ArticleShowComponent } from './shared/article-show/article-show.component';
 import {FormsModule, NgModel, ReactiveFormsModule} from '@angular/forms';
+import { RightSideComponent } from './shared/right-side/right-side.component';
+import { AddArticleComponent } from './shared/add-article/add-article.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +64,8 @@ import {FormsModule, NgModel, ReactiveFormsModule} from '@angular/forms';
     HomeComponent,
     ContactComponent,
     ArticleShowComponent,
+    RightSideComponent,
+    AddArticleComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,7 +85,7 @@ import {FormsModule, NgModel, ReactiveFormsModule} from '@angular/forms';
   ],
   providers: [],
   entryComponents: [LoginDialogComponent],
-  bootstrap: [AppComponent, LoginDialogComponent],
+  bootstrap: [AppComponent],
   exports: [
     MatButtonModule,
     MatCheckboxModule,

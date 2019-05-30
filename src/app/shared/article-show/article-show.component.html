@@ -1,3 +1,10 @@
-<p>
-  article-show works!
-</p>
+<div style="padding: 20px;">
+  <ng-container *ngIf="article">
+    <div style="padding: 20px">
+      <img src="https://goal.ge/uploads/posts/2019-05/1557069532_cristiano-ronaldo-juventus-2018-19_p93ut7cme7j1n8yjorymunzt.jpg" width="100%"  alt="">
+    </div>
+    <p>{{article.title}}</p>
+    <p>{{article.body}}</p>
+    <p>{{article.created_at}}</p>
+  </ng-container>
+</div>

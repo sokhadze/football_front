@@ -15,10 +15,12 @@ export class HeaderComponent implements OnInit {
   name: string;
   animal: string;
   user: any = UserModel;
+  userDataAvailable: boolean;
 
   constructor(public dialog: MatDialog,
               public userService: UserService,
-              private networking: NetworkingService) { }
+              private networking: NetworkingService) {
+  }
 
   ngOnInit() {
     // this.userService.getUser
@@ -27,7 +29,17 @@ export class HeaderComponent implements OnInit {
     //       console.log(data);
     //     }
     //   );
-
+    this.networking.getRequest(`/user`)
+      .subscribe(
+        (_user: UserModel) => {
+          this.userService.setUser(_user);
+          this.isLogged = true;
+          this.user = _user;
+          this.userDataAvailable = true;
+        }, () => {
+          this.userDataAvailable = true;
+        }
+      );
     this.checkUser();
   }
 
@@ -38,16 +50,9 @@ export class HeaderComponent implements OnInit {
           if (user) {
             this.isLogged = true;
             this.user = user;
-            console.log(user);
-            // this.networking.getRequest(`/user`, user)
-            //   .subscribe(
-            //     (user: UserModel) => {
-            //       this.userService.setUser(user);
-            //     }
-            //   );
+            this.userDataAvailable = true;
           }
-        }
-      );
+        });
   }
 
   openLoginDialog(): void {

@@ -43,7 +43,6 @@ export class LoginDialogComponent implements OnInit {
       this.network.postRequest(data, `/login`)
         .subscribe(
           (_data: UserModel) => {
-            debugger
             NetworkingService.setCookie('access_token', _data['data'].api_token);
             NetworkingService.setCookie('refresh_token', _data['data'].api_token);
             this.network.getRequest(`/user`, _data['data'].api_token).subscribe(

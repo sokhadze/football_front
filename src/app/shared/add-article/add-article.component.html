@@ -1,0 +1,12 @@
+<div style="padding: 10px 50px 10px 50px;">
+  <h4>პოსტის დამატება</h4>
+  <mat-form-field class="with-100">
+    <input matInput placeholder="სათაური" [(ngModel)]="data.name">
+  </mat-form-field>
+  <mat-form-field class="with-100">
+    <textarea  matInput placeholder="აღწერა" [(ngModel)]="data.email"></textarea>
+  </mat-form-field>
+  <div>
+    <button mat-button style="background-color: #212529; color: white" (click)="addArticle()">დამატება</button>
+  </div>
+</div>

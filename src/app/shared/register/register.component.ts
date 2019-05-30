@@ -13,28 +13,32 @@ export class RegisterComponent implements OnInit {
   // @ViewChild('password') password: ElementRef<HTMLInputElement>;
   // @ViewChild('password_confirmation') password_confirmation: ElementRef<HTMLInputElement>;
 
-  @Input() name: string;
-  @Input() email: string;
-  @Input() password: string;
-  @Input() password_confirmation: string;
+  // @Input() name: string;
+  // @Input() email: string;
+  // @Input() password: string;
+  // @Input() password_confirmation: string;
 
   data = {
-    'name': this.name,
-    'email': this.email,
-    'password': this.password,
-    'password_confirmation': this.password_confirmation};
+    'name': '',
+    'email': '',
+    'password': '',
+    'password_confirmation': ''};
   constructor(private network: NetworkingService) { }
 
   ngOnInit() {
+
   }
 
   registration() {
-    console.log(this.data);
-    // this.network.postRequest('', `/register`)
-    //   .subscribe(
-    //     (res: any) => {
-    //       console.log(res);
-    //     }
-    //   );
+    // this.data.name = this.name;
+    // this.data.email = this.email;
+    // this.data.password = this.password;
+    // this.data.password_confirmation = this.password_confirmation;
+    this.network.postRequest(this.data, `/register`)
+      .subscribe(
+        (res: any) => {
+          console.log(res);
+        }
+      );
   }
 }

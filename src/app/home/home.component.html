@@ -3,7 +3,7 @@
     <div class="daily-news-title">დღის მნიშვნელოვანი მოვლენები</div>
   </div>
   <ng-container *ngFor="let article of articles">
-    <div class="daily-news-content" style="cursor: pointer;" routerLink="/show/{{article.id}}" (click)="$event">
+    <div class="daily-news-content" style="cursor: pointer;" routerLink="/article/show/{{article.id}}" (click)="$event">
       <div class="daily-news-poster">
         <img width="240px" src="https://goal.ge/uploads/posts/2019-05/1557069532_cristiano-ronaldo-juventus-2018-19_p93ut7cme7j1n8yjorymunzt.jpg" alt="">
       </div>

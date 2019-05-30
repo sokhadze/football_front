@@ -1,16 +1,16 @@
 <div style="padding: 10px 50px 10px 50px;">
   <h4>რეგისტრაცია</h4>
     <mat-form-field class="with-100">
-      <input matInput placeholder="სახელი" #name>
+      <input matInput placeholder="სახელი" [(ngModel)]="data.name">
     </mat-form-field>
     <mat-form-field class="with-100">
-      <input matInput placeholder="ელ. ფოსტა" #email>
+      <input matInput placeholder="ელ. ფოსტა" [(ngModel)]="data.email">
     </mat-form-field>
     <mat-form-field class="with-100">
-      <input matInput placeholder="პაროლი" #password>
+      <input matInput placeholder="პაროლი" type="password" [(ngModel)]="data.password">
     </mat-form-field>
     <mat-form-field class="with-100">
-      <input matInput placeholder="გაიმეორეთ პაროლი" #password_confirmation>
+      <input matInput placeholder="გაიმეორეთ პაროლი" type="password" [(ngModel)]="data.password_confirmation">
     </mat-form-field>
     <div>
       <button mat-button style="background-color: #212529; color: white" (click)="registration()">რეგისტრაცია</button>
