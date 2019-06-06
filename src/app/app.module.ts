@@ -66,6 +66,7 @@ import { AddArticleComponent } from './shared/add-article/add-article.component'
     ArticleShowComponent,
     RightSideComponent,
     AddArticleComponent,
+    
   ],
   imports: [
     BrowserModule,
