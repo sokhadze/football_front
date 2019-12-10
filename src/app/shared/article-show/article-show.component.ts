@@ -21,8 +21,6 @@ export class ArticleShowComponent implements OnInit {
   }
 
   subscribeUrlParameters() {
-    debugger
-
     this.routeUrlSubscription = this.route.params.subscribe(params => {
       this.newsId = +params['id'];
       if (this.newsId) {
